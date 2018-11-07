@@ -3,18 +3,19 @@ window.onload = () => {
   let height = 200, width = 200;
   let ar: boolean[][];
   let help: boolean[][];
-  let size = 4;                                      //Pointsize
+  let size = 4;
+  let percent = 0.03;                                     //Pointsize
 
   const canvas = <HTMLCanvasElement>document.getElementById('canvas');
   canvas.width = canvas.height = boardSize;
   const ctx = canvas.getContext('2d');
-  
+
   const generateBoard = (boardSize: number, population: number) => {          //Help from Matthias Heiden
     return new Array(boardSize).fill(false).map(() => new Array(boardSize).fill(false).map(() => Math.random() < population));
   };
 
   ctx.fillStyle = 'rgba(255, 255, 255, 1)';
-  ar = generateBoard(width, 0.03);                     //create a boolean matrix
+  ar = generateBoard(width, percent);                     //create a boolean matrix
   help = ar.slice();                                   //Copy of the matrix
 
   window.requestAnimationFrame(draw);
