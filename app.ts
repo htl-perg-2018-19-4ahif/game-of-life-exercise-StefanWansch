@@ -27,7 +27,7 @@ window.onload = () => {
         for (let col = i - 1; col <= i + 1; col++) {
           for (let row = j - 1; row <= j + 1; row++) {
             if (col >= 0 && row >= 0 && col < width && row < height) {
-              if (ar[col][row] = true) {
+              if (ar[col][row] === true) {
                 countN++;
               }
             }
@@ -36,12 +36,17 @@ window.onload = () => {
         if (ar[i][j] == true) {
           countN--;
         }
-        if (countN >= 2 && countN <= 3) {
+        
+        if(ar[i][j]==true){
+          if (countN >= 2 && countN <= 3) {
+            help[i][j] = true;
+          } else {
+            help[i][j] = false;
+          }
+        }else if(ar[i][j]==false && countN==3)
           help[i][j] = true;
-        } else {
-          help[i][j] = false;
-        }
-        countN = 0;
+        
+          countN = 0;
       }
     }
     ar = help.slice();
