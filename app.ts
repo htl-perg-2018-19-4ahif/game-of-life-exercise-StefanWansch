@@ -36,17 +36,17 @@ window.onload = () => {
         if (ar[i][j] == true) {
           countN--;
         }
-        
-        if(ar[i][j]==true){
+
+        if (ar[i][j] == true) {
           if (countN >= 2 && countN <= 3) {
             help[i][j] = true;
           } else {
             help[i][j] = false;
           }
-        }else if(ar[i][j]==false && countN==3)
+        } else if (ar[i][j] == false && countN == 3)
           help[i][j] = true;
-        
-          countN = 0;
+
+        countN = 0;
       }
     }
     ar = help.slice();
